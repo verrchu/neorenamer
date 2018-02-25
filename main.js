@@ -3,8 +3,10 @@ const fs = require('fs');
 const rename = require('./rename');
 const status = require('./status');
 
-const input = '/Users/kolinsol/.dev/renamer/_in/';
-const output = 'Users/kolinsol/.dev/renamer/_out/';
+const args = process.argv.slice(2);
+
+const root = '/Users/kolinsol/.dev/renamer';
+const [input, output] = args.map(x => `${root}/_${x}/`);
 
 const processFiles = (files) => {
   if (!files.length) {
