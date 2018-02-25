@@ -3,7 +3,8 @@ const fs = require('fs');
 const rename = require('./rename');
 const format = require('./format');
 
-const folder = '/Users/kolinsol/Desktop/_test/';
+const input = '/Users/kolinsol/.dev/renamer/_in/';
+const output = 'Users/kolinsol/.dev/renamer/_out/';
 
 const processFiles = (files) => {
   if (!files.length) {
@@ -11,11 +12,11 @@ const processFiles = (files) => {
     return;
   }
   const { artist, title, filename } = rename(files[0]);
-  exec(`lame -b 320 "${folder}${files[0]}" "${folder}${filename}" --ta "${artist}" --tt "${title}"`,
+  exec(`lame -b 320 "${input}${files[0]}" "${output}${filename}" --ta "${artist}" --tt "${title}"`,
     () => processFiles(files.slice(1)))
 }
 
-const files = fs.readdirSync(folder);
+const files = fs.readdirSync(input);
 
 format.init(files);
 
