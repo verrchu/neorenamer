@@ -1,14 +1,14 @@
 const exec = require('child_process').exec;
 const fs = require('fs');
 const rename = require('./rename');
-const format = require('./format');
+const status = require('./status');
 
 const input = '/Users/kolinsol/.dev/renamer/_in/';
 const output = 'Users/kolinsol/.dev/renamer/_out/';
 
 const processFiles = (files) => {
   if (!files.length) {
-    format.finish();
+    status.finish();
     return;
   }
   const { artist, title, filename } = rename(files[0]);
@@ -18,6 +18,6 @@ const processFiles = (files) => {
 
 const files = fs.readdirSync(input);
 
-format.init(files);
+status.init(files);
 
 processFiles(files);
