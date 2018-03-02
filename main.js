@@ -14,7 +14,7 @@ const processFiles = (files) => {
     return;
   }
   const { artist, title, filename } = rename(files[0]);
-  exec(`lame -b 320 "${input}${files[0]}" "${output}${filename}" --ta "${artist}" --tt "${title}"`,
+  exec(`lame -b 320 '${input}${files[0]}' '${output}${filename}' --ta '${artist}' --tt '${title}'`,
     () => processFiles(files.slice(1)))
 }
 
