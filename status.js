@@ -8,8 +8,8 @@ const init = (files) => {
     }
 }
 
-const process = (file) => {
-    console.log(`\nProcessing\n${file}`);
+const process = (file, cur, max) => {
+    console.log(`\nProcessing (${cur}/${max})\n${file}`);
 }
 
 const finish = () => {

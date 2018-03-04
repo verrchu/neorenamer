@@ -1,7 +1,7 @@
 const status = require('./status');
 
-module.exports = function(str) {
-  status.process(str);
+module.exports = function(str, cur, max) {
+  status.process(str, cur, max);
 
   const [artist, remainder] = str.toLowerCase().split(/ +- +/);
   const title = remainder
