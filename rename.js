@@ -7,7 +7,7 @@ module.exports = function(str, cur, max) {
   const title = remainder
     .replace(/(\[|\]|\(|\))/g,'')
     .replace(/[ _]+/g, ' ')
-    .replace(/^([a-zA-Z0-9$ ]+?)( (feat|ft)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))?( (prod\.? ?by|prod)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))?(.mp3)$/,
+    .replace(/^([a-zA-Z0-9$ ]+?)( (feat|ft)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))?( (prod\.? ?by|prod)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))? *?(.mp3)$/,
       (...x) => {
         if (x[4] && x[8]) return `${x[1]} (w/ ${x[4]}) (p/ ${x[8]})`;
         if (x[4]) return `${x[1]} (w/ ${ x[4]})`;
