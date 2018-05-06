@@ -15,7 +15,7 @@ module.exports = function(str, cur, max) {
         return x[1];
       });
   return {
-	  artist,
+    artist,
     title,
     filename: `${artist} - ${title}.mp3`.replace(/\//g,'')
   }
