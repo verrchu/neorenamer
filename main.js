@@ -3,7 +3,7 @@
 const exec = require('child_process').exec;
 const fs = require('fs');
 const path = require('path');
-const rename = require('./rename');
+const { rename } = require('./worker');
 const status = require('./status');
 
 const args = process.argv.slice(2);

@@ -1,6 +1,6 @@
 const status = require('./status');
 
-module.exports = function(str, cur, max) {
+const rename = (str, cur, max) => {
   status.process(str, cur, max);
 
   const [artist, remainder] = str.toLowerCase().split(/ +- +/);
@@ -20,3 +20,7 @@ module.exports = function(str, cur, max) {
     filename: `${artist} - ${title}.mp3`.replace(/\//g,'')
   }
 }
+
+module.exports = {
+    rename
+};
