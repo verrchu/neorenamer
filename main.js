@@ -8,7 +8,7 @@ const { rename } = require('./worker');
 const status = require('./status');
 
 const optionsDefinition = [
-  { name: 'mode', alias: 'm', type: String },
+  { name: 'mode', alias: 'm', type: String, defaultValue: 'rename' },
   { name: 'from', alias: 'f', type: String },
   { name: 'to', alias: 't', type: String }
 ];
@@ -31,6 +31,17 @@ const processFiles = (files, cur, max) => {
 
 const files = fs.readdirSync(input);
 
-status.init(files);
+status.init(files, mode);
 
-processFiles(files, 1, files.length);
+switch (mode) {
+    case 'rename':
+        processFiles(files, 1, files.length);
+        break;
+    case 'test':
+        throw new Error('Not implemented');
+        break;
+    default:
+        throw new Error('Invalid mode');
+}
+
+

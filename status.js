@@ -1,10 +1,11 @@
-const init = (files) => {
+const init = (files, mode) => {
     if (!files.length) {
         console.log('No files to process.');
     } else {
-        const header = `To be processed (${files.length} file[s]):`;
+        const modeHeader = `Starting in ${mode.toUpperCase()} mode`;
+        const processHeader = `To be processed (${files.length} file[s]):`;
         const fileList = files.map((x, i) => `${i + 1}. ${x}`).join('\n');
-        console.log(`${header}\n\n${fileList}`);
+        console.log(`${modeHeader}\n\n${processHeader}\n\n${fileList}`);
     }
 }
 
