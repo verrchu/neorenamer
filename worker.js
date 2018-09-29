@@ -6,6 +6,12 @@ const prepare = (str) => {
     return str.replace(/(\[|\]|\(|\))/g,'').replace(/[ _]+/g, ' ');
 }
 
+const test = (str) => {
+  const [artist, rawTitle] = str.toLowerCase().split(/ +- +/);
+  const preparedTitle = prepare(rawTitle);
+  return mainRegex.test(preparedTitle);
+}
+
 const rename = (str, cur, max) => {
   status.process(str, cur, max);
 
@@ -26,6 +32,4 @@ const rename = (str, cur, max) => {
   }
 }
 
-module.exports = {
-    rename
-};
+module.exports = { rename, test };

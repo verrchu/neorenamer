@@ -4,9 +4,24 @@ const init = (files, mode) => {
     } else {
         const modeHeader = `Starting in ${mode.toUpperCase()} mode`;
         const processHeader = `To be processed (${files.length} file[s]):`;
-        const fileList = files.map((x, i) => `${i + 1}. ${x}`).join('\n');
-        console.log(`${modeHeader}\n\n${processHeader}\n\n${fileList}`);
+        const fileList = listFiles(files);
+        console.log(`${modeHeader}\n\n${processHeader}\n\n${fileList}\n`);
     }
+}
+
+const report = ({ success, failure }) => {
+    const successReport = `${success.length} files process successfully`;
+    const failureReport = `${failure.length} files failed while processing`;
+
+    const failedHeader = 'Failed files:';
+
+    const failedFileList = listFiles(failure);
+
+    console.log(`\n${successReport}\n${failureReport}\n\n${failedHeader}\n\n${failedFileList}`);
+}
+
+const listFiles = (files) => {
+    return files.map((x, i) => `${i + 1}. ${x}`).join('\n');
 }
 
 const process = (file, cur, max) => {
@@ -20,5 +35,6 @@ const finish = () => {
 module.exports = {
     init,
     process,
-    finish
+    finish,
+    report
 };
