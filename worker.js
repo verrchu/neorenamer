@@ -1,5 +1,7 @@
 const status = require('./status');
 
+const mainRegex = /^([a-zA-Z0-9$ ]+?)( (feat|ft)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))?( (prod\.? ?by|prod)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))? *?(.mp3)$/;
+
 const prepare = (str) => {
     return str.replace(/(\[|\]|\(|\))/g,'').replace(/[ _]+/g, ' ');
 }
@@ -10,7 +12,7 @@ const rename = (str, cur, max) => {
   const [artist, rawTitle] = str.toLowerCase().split(/ +- +/);
   const preparedTitle = prepare(rawTitle);
   const title = preparedTitle
-    .replace(/^([a-zA-Z0-9$ ]+?)( (feat|ft)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))?( (prod\.? ?by|prod)\.? ?([a-zA-Z0-9$ ]+?( x [a-zA-Z0-9$ ]+?)*))? *?(.mp3)$/,
+    .replace(mainRegex,
       (...x) => {
         if (x[4] && x[8]) return `${x[1]} (w/ ${x[4]}) (p/ ${x[8]})`;
         if (x[4]) return `${x[1]} (w/ ${ x[4]})`;
