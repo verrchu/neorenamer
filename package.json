@@ -1,0 +1,22 @@
+{
+  "name": "neorenamer",
+  "version": "0.0.2",
+  "description": "mp3 renaming utility",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolinsol/neorenamer.git"
+  },
+  "author": "Yauheni Tsiarokhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kolinsol/neorenamer/issues"
+  },
+  "homepage": "https://github.com/kolinsol/neorenamer#readme",
+  "dependencies": {
+    "command-line-args": "^5.0.2"
+  }
+}
